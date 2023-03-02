@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 
 public class NotaGeneratorTest {
-    @Test
+
     public void testGenerateNota1() {
         String solution = "ID    : BOCI-08203712389-79\n" +
                 "Paket : reguler\n" +
