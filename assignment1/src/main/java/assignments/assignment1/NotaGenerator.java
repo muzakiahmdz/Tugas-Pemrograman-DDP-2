@@ -158,6 +158,7 @@ public class NotaGenerator {
             }
 
         }
+        checksum %= 100;
         // tambahkan digit 0 jika checksum hanya satu digit
         if (checksum < 10) {
             id += "-0" + checksum;
@@ -165,7 +166,6 @@ public class NotaGenerator {
             id += "-" + checksum;
         }
         // tampilkan ID nota
-        id += String.format("-%02d", checksum % 100);
         return id;
     }
 
