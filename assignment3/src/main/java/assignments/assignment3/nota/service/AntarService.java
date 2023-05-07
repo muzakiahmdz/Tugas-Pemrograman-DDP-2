@@ -2,23 +2,23 @@ package assignments.assignment3.nota.service;
 
 import assignments.assignment3.nota.Nota;
 
-public class AntarService implements LaundryService{
+public class AntarService implements LaundryService{ //ini buat antar service
     private boolean done = false;
 
     @Override
-    public String doWork() {
+    public String doWork() { //status
         done = true;
         return "Sedang mengantar...";
     }
 
     @Override
-    public boolean isDone() {
+    public boolean isDone() { //boolean indikator
         return done;
 
     }
 
     @Override
-    public long getHarga(int berat) {
+    public long getHarga(int berat) { //setting harga
         int biayaCucianDiantar = 0;
         if (berat <= 4) {
            biayaCucianDiantar = 2000;
@@ -30,7 +30,7 @@ public class AntarService implements LaundryService{
     }
 
     @Override
-    public String getServiceName() {
+    public String getServiceName() { //nama service
 
         return "Antar";
     }

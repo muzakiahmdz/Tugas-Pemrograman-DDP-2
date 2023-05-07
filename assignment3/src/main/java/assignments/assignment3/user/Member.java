@@ -2,6 +2,7 @@ package assignments.assignment3.user;
 
 import assignments.assignment3.nota.Nota;
 public class Member {
+    //constructor
     protected String id;
     protected String password;
     protected String nama;
@@ -20,7 +21,7 @@ public class Member {
      * @param password -> password anggota untuk mengautentikasi.
      * @return true jika ID dan password sesuai dengan instance member, false jika tidak.
      */
-    public boolean login(String id, String password) {
+    public boolean login(String id, String password) { //method login
 
         return id.equals(this.id) && authenticate(password);
     }
@@ -30,7 +31,7 @@ public class Member {
      *
      * @param nota Nota object untuk ditambahkan.
      */
-    public void addNota(Nota nota) {
+    public void addNota(Nota nota) { //add nota, method utk masukin ke list nota
         Nota[] newNotaList = new Nota[notaList.length + 1];
         System.arraycopy(notaList, 0, newNotaList, 0, notaList.length);
         newNotaList[newNotaList.length - 1] = nota;

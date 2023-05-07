@@ -6,6 +6,7 @@ import assignments.assignment3.user.menu.MemberSystem;
 import assignments.assignment3.user.menu.SystemCLI;
 
 public class LoginManager {
+    //constructr
     private final EmployeeSystem employeeSystem;
     private final MemberSystem memberSystem;
 
@@ -20,7 +21,7 @@ public class LoginManager {
      * @param id -> ID dari user yang akan menggunakan SystemCLI
      * @return SystemCLI object yang sesuai dengan ID, null if  ID tidak ditemukan.
      */
-    public SystemCLI getSystem(String id){
+    public SystemCLI getSystem(String id){ //get system method defult templ
         if(memberSystem.isMemberExist(id)){
             return memberSystem;
         }
@@ -38,7 +39,7 @@ public class LoginManager {
      * @param password -> Password akun member.
      * @return Member object yang berhasil mendaftar, return null jika gagal mendaftar.
      */
-    public Member register(String nama, String noHp, String password) {
+    public Member register(String nama, String noHp, String password) { //method register
         if (memberSystem.isMemberExist(NotaGenerator.generateId(nama,noHp))){
             return null;
         }

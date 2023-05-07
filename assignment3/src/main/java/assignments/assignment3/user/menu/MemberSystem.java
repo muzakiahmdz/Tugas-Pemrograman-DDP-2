@@ -20,13 +20,13 @@ public class MemberSystem extends SystemCLI {
      * @return true jika user log.
      */
     @Override
-    protected boolean processChoice(int choice) {
+    protected boolean processChoice(int choice) {//switch case proses pilihan
         boolean logout = false;
         switch (choice) {
             case 1:
-                // minta in paket cuci dan berat cucian
+                // minta in paket cuci dan data cucian
                 String tanggal = fmt.format(cal.getTime());
-                showPaket();
+                showPaket(); //show paket
                 System.out.println("Masukkan paket laundry: "); //meminta jenis paket
                 String paket = in.nextLine().toLowerCase();
                 System.out.println("Masukkan berat cucian Anda [Kg]: "); //meminta berat cucian
@@ -54,14 +54,14 @@ public class MemberSystem extends SystemCLI {
                 System.out.println("Nota berhasil dibuat!\n");
                 break;
 
-            case 2:
+            case 2: //display nota list
                 for(int i = 0 ; i < loginMember.getNotaList().length; i++){
                     System.out.print(loginMember.getNotaList()[i]);
                 }
 
                 break;
 
-            case 3:
+            case 3: //logout acc
                 logout = true;
                 break;
         }
@@ -73,7 +73,7 @@ public class MemberSystem extends SystemCLI {
      * Displays specific menu untuk Member biasa.
      */
 
-    protected void displaySpecificMenu() {
+    protected void displaySpecificMenu() { //display specific menu
         System.out.println("1. Saya ingin laundry");
         System.out.println("2. Lihat detail nota saya");
         System.out.println("3. Logout");
@@ -84,7 +84,7 @@ public class MemberSystem extends SystemCLI {
      *
      * @param member -> Member baru yang akan ditambahkan.
      */
-    public void addMember(Member member) {
+    public void addMember(Member member) { //masukin member ke list
             Member[] temp = new Member[memberList.length+1];
             for(int i = 0; i < memberList.length; i++){
                 temp[i] = memberList[i];

@@ -12,7 +12,7 @@ public class EmployeeSystem extends SystemCLI {
     /**
      * Membuat object baru EmployeeSystem dan mendaftarkan Employee pada CuciCuci
      */
-    public EmployeeSystem() {
+    public EmployeeSystem() { //data login admin
         memberList = new Member[]{
                 new Employee("Dek Depe", "akuDDP"),
                 new Employee("Depram", "musiktualembut"),
@@ -28,18 +28,18 @@ public class EmployeeSystem extends SystemCLI {
      * @return true jika user log.
      */
 
-    protected boolean processChoice(int choice) {
+    protected boolean processChoice(int choice) { //proses pilihan
         boolean logout = false;
         switch (choice) {
-            case 1:
+            case 1: //nyuci
                 nyuciTime();
                 break;
 
-            case 2:
+            case 2: //display nota
                 displayAllNotas();
                 break;
 
-            case 3:
+            case 3: //logout
                 logout = true;
                 break;
         }
@@ -50,7 +50,7 @@ public class EmployeeSystem extends SystemCLI {
      * Displays specific menu untuk Employee.
      */
 
-    protected void displaySpecificMenu() {
+    protected void displaySpecificMenu() { //menu pilihan
         System.out.println("1. It's nyuci time");
         System.out.println("2. Display List Nota");
         System.out.println("3. Logout");
@@ -59,8 +59,8 @@ public class EmployeeSystem extends SystemCLI {
     /**
      * Menampilkan pesan dari semua nota yang ada.
      */
-    private void nyuciTime() {
-        System.out.println("Stand back! Depram beginning to nyuci!");
+    private void nyuciTime() { //menyuci laundry dan memnerikan status
+        System.out.println("Stand back! " +loginMember.getNama()+ " beginning to nyuci!");
         for (Nota nota : notaList) {
             System.out.println("Nota " + nota.getIdNotaPribadi() + " : " + getNotaStatus(nota));
         }
@@ -69,7 +69,7 @@ public class EmployeeSystem extends SystemCLI {
     /**
      * Menampilkan status dari semua nota.
      */
-    private void displayAllNotas() {
+    private void displayAllNotas() { //display nota
         for (Nota nota : notaList) {
             System.out.println("Nota " + nota.getIdNotaPribadi() + " : " + (nota.getIsDone() ? "Sudah selesai." : "Belum selesai."));
         }
@@ -89,7 +89,7 @@ public class EmployeeSystem extends SystemCLI {
      * @param nota -> nota yang ingin diketahui status kerjanya.
      * @return status kerja nota.
      */
-    private String getNotaStatus(Nota nota) {
+    private String getNotaStatus(Nota nota) {//memberikan status nota
         LaundryService[] services = nota.getServices();
         if (services != null) {
             for (int i = 0; i < services.length; i++) {

@@ -8,7 +8,7 @@ import java.util.Scanner;
 import static assignments.assignment3.nota.NotaManager.cal;
 import static assignments.assignment3.nota.NotaManager.fmt;
 
-public class MainMenu {
+public class MainMenu { //main menu
     private final Scanner in;
     private final LoginManager loginManager;
 
@@ -30,7 +30,7 @@ public class MainMenu {
     /**
      * Menjalankan main menu.
      */
-    public void run() {
+    public void run() { //menjalankan main menu
         boolean exit = false;
         while (!exit) {
             displayMenu();
@@ -51,7 +51,7 @@ public class MainMenu {
     /**
      * Skips ke hari selanjutnya dan mengupdate sistem.
      */
-    private void toNextDay() {
+    private void toNextDay() { //ganti hari methode
         System.out.println("Kamu tidur hari ini... zzz...\n");
         NotaManager.toNextDay();
     }
@@ -59,7 +59,7 @@ public class MainMenu {
     /**
      * Mendaftarkan user pada sistem.
      */
-    void register() {
+    void register() { //registrasi
         System.out.println("Masukan nama Anda: ");
         String nama = in.nextLine();
         System.out.println("Masukan nomor handphone Anda: ");
@@ -78,7 +78,7 @@ public class MainMenu {
     /**
      * Meminta user untuk login dan memulai SystemCLI yang sesuai.
      */
-    private void login() {
+    private void login() {//login user
         System.out.print("Masukan ID Anda: ");
         String inputId = in.nextLine();
         System.out.print("Masukan password Anda: ");
@@ -94,7 +94,7 @@ public class MainMenu {
     /**
      * Menampilkan menu
      */
-    private void displayMenu() {
+    private void displayMenu() {//display menu
         System.out.println("Selamat datang di CuciCuci System!");
         System.out.printf("Sekarang tanggal %s\n", fmt.format(cal.getTime()));
         System.out.println("1. Login");
