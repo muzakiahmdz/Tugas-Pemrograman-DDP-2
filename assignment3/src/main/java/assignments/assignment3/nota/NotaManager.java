@@ -13,6 +13,15 @@ public class NotaManager {
      */
     public static void toNextDay(){
         //TODO: implement skip hari
+        cal.add(Calendar.DAY_OF_MONTH, 1);
+        if (notaList != null) {
+            for (Nota nota : notaList) {//looping kesiapan ambil cucian
+                nota.setSisaHariPengerjaan();
+                if(nota.getSisaHariPengerjaan() <= 0){
+                    nota.setIsDone();
+                }
+            }
+        }
     }
 
     /**
@@ -21,6 +30,11 @@ public class NotaManager {
      * @param nota Nota object untuk ditambahkan.
      */
     public static void addNota(Nota nota){
-        //TODO: implement add nota
+        Nota[] temp = new Nota[notaList.length+1];
+        for(int i = 0; i < notaList.length; i++){
+            temp[i] = notaList[i];
+        }
+        temp[temp.length-1] = nota;
+        notaList = temp;
     }
 }

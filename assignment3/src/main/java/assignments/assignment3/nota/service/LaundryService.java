@@ -1,12 +1,7 @@
 package assignments.assignment3.nota.service;
 
 public interface LaundryService {
-    /**
-     * Akan mengembalikan String yang menandakan bahwa Nota tersebut sedang dikerjakan.
-     * Jika pernah dipanggil minimal sekali akan membuat method isDone mengembalikan true.
-     *
-     * @return String yang menandakan bahwa sedang dikerjakan.
-     */
+
     String doWork();
 
     /**
@@ -29,5 +24,7 @@ public interface LaundryService {
      *
      * @return nama service.
      */
-    String getServiceName();
+    default String getServiceName() {
+        return null;
+    }
 }

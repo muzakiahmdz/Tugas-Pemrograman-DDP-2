@@ -1,4 +1,4 @@
-package assignments.assignment3.user;
+ package assignments.assignment3.user;
 
 public class Employee extends Member {
     public static int employeeCount;
@@ -14,7 +14,10 @@ public class Employee extends Member {
      * @param nama -> Nama lengkap dari employee
      */
     private static String generateId(String nama) {
-        // TODO
-        return "";
+        String[] parts = nama.split(" ");
+        String firstName = parts[0].toUpperCase();
+        String id = firstName + "-" + employeeCount;
+        employeeCount++;
+        return id;
     }
 }
