@@ -15,6 +15,7 @@ public abstract class AbstractMemberGUI extends JPanel implements Loginable{
     protected Member loggedInMember;
     private final SystemCLI systemCLI;
 
+
     public AbstractMemberGUI(SystemCLI systemCLI) {
         super(new BorderLayout());
         this.systemCLI = systemCLI;
@@ -89,6 +90,15 @@ public abstract class AbstractMemberGUI extends JPanel implements Loginable{
      * */
     public boolean login(String id, String password) {
         // TODO
+        if(systemCLI.isMemberExist(id)){ //autorisasi member
+        Member member = systemCLI.authUser(id, password);
+        if (member != null) {
+            loggedInMember = member;
+            updateWelcomeLabel();
+            updateLoggedInAsLabel();
+            return true;
+         }
+        }
         return false;
     }
 
@@ -116,4 +126,25 @@ public abstract class AbstractMemberGUI extends JPanel implements Loginable{
      * @return Array of ActionListener.
      * */
     protected abstract ActionListener[] createActionListeners();
+    /**
+     * Method untuk mengupdate label welcome dengan informasi member yang sedang login.
+     */
+    protected void updateWelcomeLabel() { //welcomelbl
+        if (loggedInMember != null) {
+            welcomeLabel.setText("Welcome! " + loggedInMember.getNama());
+        } else {
+            welcomeLabel.setText("");
+        }
+    }
+
+    /**
+     * Method untuk mengupdate label loggedInAs dengan informasi ID member yang sedang login.
+     */
+    protected void updateLoggedInAsLabel() { //label pengguna
+        if (loggedInMember != null) {
+            loggedInAsLabel.setText("Logged in as: " + loggedInMember.getId());
+        } else {
+            loggedInAsLabel.setText("");
+        }
+    }
 }

@@ -13,9 +13,10 @@ import assignments.assignment4.gui.member.member.MemberSystemGUI;
 
 import javax.swing.*;
 import java.awt.*;
+//importss
 
-
-public class MainFrame extends JFrame{
+public class MainFrame extends JFrame{ //Deklarasi kelas MainFrame yang merupakan turunan dari kelas JFrame.
+    //Deklarasi variabel-variabel instance yang akan digunakan dalam kelas.
     private static MainFrame instance;
     private final Loginable[] loginablePanel;
     private final MemberSystem memberSystem = new MemberSystem();
@@ -30,7 +31,7 @@ public class MainFrame extends JFrame{
     private final MemberSystemGUI memberSystemGUI = new MemberSystemGUI(memberSystem);
     private final CreateNotaGUI createNotaGUI = new CreateNotaGUI(memberSystemGUI);
 
-    private MainFrame(){
+    private MainFrame(){ //mainframe
         super("CuciCuciSystem");
 //        TODO: uncomment code dibawah ini setelah kamu implmentasikan addEmployee pada EmployeeSystem.
 //        // for context dari 2 employee baru ini : https://ristek.link/karyawan-baru-cucicuci
@@ -55,7 +56,7 @@ public class MainFrame extends JFrame{
      * Selama funsionalitas sesuai dengan soal, tidak apa apa tidak 100% sama.
      * Be creative and have fun!
      * */
-    private void initGUI() {
+    private void initGUI() { //init
         mainPanel.add(homeGUI, HomeGUI.KEY);
         mainPanel.add(registerGUI, RegisterGUI.KEY);
         mainPanel.add(loginGUI, LoginGUI.KEY);
@@ -83,7 +84,7 @@ public class MainFrame extends JFrame{
      * @param page -> key dari halaman yang diinginkan.
      * */
     public void navigateTo(String page){
-        // TODO
+        cards.show(mainPanel, page);
     }
 
     /**
@@ -96,10 +97,13 @@ public class MainFrame extends JFrame{
      * @param password -> password dari pengguna
      * @return boolean yang menandakan apakah login berhasil atau gagal.
      * */
-    public boolean login(String id, String password){
-        for (Loginable panel:
-                loginablePanel) {
-            // TODO
+    public boolean login(String id, String password) {
+        for (Loginable panel : loginablePanel) {
+            boolean loggedIn = panel.login(id, password);
+            if (loggedIn) {
+                navigateTo(panel.getPageName());
+                return true;
+            }
         }
         return false;
     }
